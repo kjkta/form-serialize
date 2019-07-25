@@ -1,19 +1,21 @@
 {
   "name": "for-cerial",
   "version": "1.0.0-beta.1",
-  "description": "Serialize html forms. Target agnoistic fork of github.com/shtylman/form-serialize",
+  "description": "Serialize html forms. Target agnoistic fork of https://github.com/shtylman/form-serialize",
   "source": "index.js",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "unpkg": "dist/index.umd.js",
   "scripts": {
     "build": "microbundle",
-    "dev": "microbundle watch"
+    "dev": "microbundle watch",
+    "test": "jest"
   },
   "files": [
     "dist"
   ],
   "devDependencies": {
+    "jest": "^24.8.0",
     "microbundle": "^0.11.0"
   },
   "keywords": [
