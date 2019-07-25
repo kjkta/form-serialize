@@ -1,0 +1,17 @@
+<form>
+  <input name="name" />
+  <input type="number" name="age" />
+  <input type="checkbox" name="one" />
+  <input type="checkbox" name="two" />
+  <input type="submit" value="Submit!" />
+</form>
+<script type="module">
+  import serialize from "https://unpkg.com/for-cerial@1.0.0-beta.1/dist/index.mjs";
+
+  const form = document.querySelector("form");
+  form.onsubmit = e => {
+    e.preventDefault();
+    const values = serialize(e.target, { hash: true });
+    console.log(values);
+  };
+</script>
