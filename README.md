@@ -1,6 +1,6 @@
 # for-cerial
 
-serialize form fields to submit a form over ajax
+serialize form field values.
 
 ## install
 
