@@ -1,4 +1,4 @@
-# form-serialize [![Build Status](https://travis-ci.org/defunctzombie/form-serialize.png?branch=master)](https://travis-ci.org/defunctzombie/form-serialize)
+# for-cerial
 
 serialize form fields to submit a form over ajax
 
@@ -13,16 +13,17 @@ npm install form-serialize
 form-serialize supports two output formats, url encoded (default) or hash (js objects).
 
 Lets serialize the following html form:
+
 ```html
 <form id="example-form">
-	<input type="text" name="foo" value="bar"/>
-	<input type="submit" value="do it!"/>
+  <input type="text" name="foo" value="bar" />
+  <input type="submit" value="do it!" />
 </form>
 ```
 
 ```js
-var serialize = require('form-serialize');
-var form = document.querySelector('#example-form');
+var serialize = require("form-serialize");
+var form = document.querySelector("#example-form");
 
 var str = serialize(form);
 // str -> "foo=bar"
@@ -37,19 +38,19 @@ var obj = serialize(form, { hash: true });
 
 Returns a serialized form of a HTMLForm element. Output is determined by the serializer used. Default serializer is url-encoded.
 
-arg | type | desc
-:--- | :--- | :---
-form | HTMLForm | must be an HTMLForm element
-options | Object | optional options object
+| arg     | type     | desc                        |
+| :------ | :------- | :-------------------------- |
+| form    | HTMLForm | must be an HTMLForm element |
+| options | Object   | optional options object     |
 
 #### options
 
-option | type | default | desc
-:--- | :--- | :---: | :---
-hash | boolean | false | if `true`, the hash serializer will be used for `serializer` option
-serializer | function | url-encoding | override the default serializer (hash or url-encoding)
-disabled | boolean | false | if `true`, disabled fields will also be serialized
-empty | boolean | false | if `true`, empty fields will also be serialized
+| option     | type     |   default    | desc                                                                |
+| :--------- | :------- | :----------: | :------------------------------------------------------------------ |
+| hash       | boolean  |    false     | if `true`, the hash serializer will be used for `serializer` option |
+| serializer | function | url-encoding | override the default serializer (hash or url-encoding)              |
+| disabled   | boolean  |    false     | if `true`, disabled fields will also be serialized                  |
+| empty      | boolean  |    false     | if `true`, empty fields will also be serialized                     |
 
 ### custom serializer
 
@@ -72,22 +73,21 @@ This does not affect `url-encoding` mode output in any way.
 
 ```html
 <form id="example-form">
-	<input type="checkbox" name="foo[]" value="bar" checked />
-	<input type="checkbox" name="foo[]" value="baz" />
-	<input type="submit" value="do it!"/>
+  <input type="checkbox" name="foo[]" value="bar" checked />
+  <input type="checkbox" name="foo[]" value="baz" />
+  <input type="submit" value="do it!" />
 </form>
 ```
 
 ```js
-var serialize = require('form-serialize');
-var form = document.querySelector('#example-form');
+var serialize = require("form-serialize");
+var form = document.querySelector("#example-form");
 
 var obj = serialize(form, { hash: true });
 // obj -> { foo: ['bar'] }
 
 var str = serialize(form);
 // str -> "foo[]=bar"
-
 ```
 
 ### indexed arrays
@@ -98,22 +98,21 @@ Like the "[explicit array fields](explicit-array-fields)" this does not affect u
 
 ```html
 <form id="todos-form">
-	<input type="text" name="todos[1]" value="milk" />
-	<input type="text" name="todos[0]" value="eggs" />
-	<input type="text" name="todos[2]" value="flour" />
+  <input type="text" name="todos[1]" value="milk" />
+  <input type="text" name="todos[0]" value="eggs" />
+  <input type="text" name="todos[2]" value="flour" />
 </form>
 ```
 
 ```js
-var serialize = require('form-serialize');
-var form = document.querySelector('#todos-form');
+var serialize = require("form-serialize");
+var form = document.querySelector("#todos-form");
 
 var obj = serialize(form, { hash: true });
 // obj -> { todos: ['eggs', 'milk', 'flour'] }
 
 var str = serialize(form);
 // str -> "todos[1]=milk&todos[0]=eggs&todos[2]=flour"
-
 ```
 
 ### nested objects
@@ -124,18 +123,17 @@ Like the "[explicit array fields](explicit-array-fields)" this does not affect u
 
 ```html
 <form id="nested-example">
-	<input type="text" name="foo[bar][baz]" value="qux" />
-	<input type="text" name="foo[norf][]" value="item 1" />
+  <input type="text" name="foo[bar][baz]" value="qux" />
+  <input type="text" name="foo[norf][]" value="item 1" />
 </form>
 ```
 
 ```js
-var serialize = require('form-serialize');
-var form = document.querySelector('#todos-form');
+var serialize = require("form-serialize");
+var form = document.querySelector("#todos-form");
 
 var obj = serialize(form, { hash: true });
 // obj -> { foo: { bar: { baz: 'qux' } }, norf: [ 'item 1' ] }
-
 ```
 
 ## references
