@@ -5,12 +5,12 @@ serialize form fields to submit a form over ajax
 ## install
 
 ```shell
-npm install form-serialize
+npm install for-cerial
 ```
 
 ## use
 
-form-serialize supports two output formats, url encoded (default) or hash (js objects).
+for-cerial supports two output formats, url encoded (default) or hash (js objects).
 
 Lets serialize the following html form:
 
@@ -22,7 +22,7 @@ Lets serialize the following html form:
 ```
 
 ```js
-var serialize = require("form-serialize");
+var serialize = require("for-cerial");
 var form = document.querySelector("#example-form");
 
 var str = serialize(form);
@@ -80,7 +80,7 @@ This does not affect `url-encoding` mode output in any way.
 ```
 
 ```js
-var serialize = require("form-serialize");
+var serialize = require("for-cerial");
 var form = document.querySelector("#example-form");
 
 var obj = serialize(form, { hash: true });
@@ -105,7 +105,7 @@ Like the "[explicit array fields](explicit-array-fields)" this does not affect u
 ```
 
 ```js
-var serialize = require("form-serialize");
+var serialize = require("for-cerial");
 var form = document.querySelector("#todos-form");
 
 var obj = serialize(form, { hash: true });
@@ -129,7 +129,7 @@ Like the "[explicit array fields](explicit-array-fields)" this does not affect u
 ```
 
 ```js
-var serialize = require("form-serialize");
+var serialize = require("for-cerial");
 var form = document.querySelector("#todos-form");
 
 var obj = serialize(form, { hash: true });
