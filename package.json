@@ -1,6 +1,6 @@
 {
   "name": "for-cerial",
-  "version": "1.0.0-beta.0",
+  "version": "1.0.0-beta.1",
   "description": "Serialize html forms. Target agnoistic fork of github.com/shtylman/form-serialize",
   "source": "index.js",
   "main": "dist/index.js",
