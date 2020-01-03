@@ -123,8 +123,8 @@ test("checkboxes", function() {
   );
   expect(hash_check(form)).toEqual({ foo: "on", baz: "on" });
   expect(str_check(form)).toEqual("foo=on&baz=on");
-  expect(empty_check(form)).toEqual("foo=on&bar=&baz=on");
-  expect(empty_check_hash(form)).toEqual({ foo: "on", bar: "", baz: "on" });
+  expect(empty_check(form)).toEqual("foo=on&bar=false&baz=on");
+  expect(empty_check_hash(form)).toEqual({ foo: "on", bar: false, baz: "on" });
 });
 
 test("checkboxes - array", function() {
@@ -135,8 +135,8 @@ test("checkboxes - array", function() {
   );
   expect(hash_check(form)).toEqual({ foo: ["bar", "baz"] });
   expect(str_check(form)).toEqual("foo%5B%5D=bar&foo%5B%5D=baz");
-  expect(empty_check(form)).toEqual("foo%5B%5D=bar&foo%5B%5D=baz&foo%5B%5D=");
-  expect(empty_check_hash(form)).toEqual({ foo: ["bar", "baz", ""] });
+  expect(empty_check(form)).toEqual("foo%5B%5D=bar&foo%5B%5D=baz&foo%5B%5D=false");
+  expect(empty_check_hash(form)).toEqual({ foo: ["bar", "baz", false] });
 });
 
 test("checkboxes - array with single item", function() {

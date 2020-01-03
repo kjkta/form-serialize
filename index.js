@@ -69,7 +69,7 @@ function serialize(form, options) {
     if (options.empty) {
       // for checkbox
       if (element.type === "checkbox" && !element.checked) {
-        val = "";
+        val = false;
       }
 
       // for radio
@@ -245,6 +245,8 @@ function hash_serializer(result, key, value) {
 
 // urlform encoding serializer
 function str_serialize(result, key, value) {
+  // coerce values into strings
+  value = String(value);
   // encode newlines as \r\n cause the html spec says so
   value = value.replace(/(\r)?\n/g, "\r\n");
   value = encodeURIComponent(value);
