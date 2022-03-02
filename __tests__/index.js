@@ -121,16 +121,16 @@ test("checkboxes", function() {
       '<input type="checkbox" name="bar"/>' +
       '<input type="checkbox" name="baz" checked/>'
   );
-  expect(hash_check(form)).toEqual({ foo: "on", baz: "on" });
-  expect(str_check(form)).toEqual("foo=on&baz=on");
-  expect(empty_check(form)).toEqual("foo=on&bar=false&baz=on");
-  expect(empty_check_hash(form)).toEqual({ foo: "on", bar: false, baz: "on" });
+  expect(hash_check(form)).toEqual({ foo: true, baz: true });
+  expect(str_check(form)).toEqual("foo=true&baz=true");
+  expect(empty_check(form)).toEqual("foo=true&bar=false&baz=true");
+  expect(empty_check_hash(form)).toEqual({ foo: true, bar: false, baz: true });
 });
 
 test("checkboxes - array", function() {
   let form = makeDOMForm(
-    '<input type="checkbox" name="foo[]" value="bar" checked/>' +
-      '<input type="checkbox" name="foo[]" value="baz" checked/>' +
+    '<input type="checkbox" name="foo[]" value="bar" checked />' +
+      '<input type="checkbox" name="foo[]" value="baz" checked />' +
       '<input type="checkbox" name="foo[]" value="baz"/>'
   );
   expect(hash_check(form)).toEqual({ foo: ["bar", "baz"] });
