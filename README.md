@@ -136,6 +136,9 @@ var obj = serialize(form, { hash: true });
 // obj -> { foo: { bar: { baz: 'qux' } }, norf: [ 'item 1' ] }
 ```
 
+### radio buttons example
+https://codesandbox.io/s/for-cerial-radio-buttons-hubroj
+
 ## references
 
 This module is based on ideas from jQuery serialize and the Form.serialize method from the prototype library
